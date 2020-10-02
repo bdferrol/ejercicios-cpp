@@ -16,15 +16,15 @@ int main() {
     std::cin >> falta_de_aire;
 
     if (temperatura > 37.0) { sintomas++; }
-    if (tos_seca == 's') { sintomas++; }
-    if (falta_de_aire == 's') { sintomas++; }
+    if (tos_seca == 's' || tos_seca == 'S') { sintomas++; }
+    if (falta_de_aire == 's' || falta_de_aire == 'S') { sintomas++; }
 
     if (sintomas >= 2) {
         char contacto;
         std::cout << "¿Ha mantenido contacto con personas portadoras? (s/n)" << std::endl;
         std::cin >> contacto;
 
-        if (contacto == 's') {
+        if (contacto == 's' || contacto == 'S') {
             std::cout << "Probablemente tenga COVID-19. Debe permanecer en su domicilio." << std::endl;
         } else {
             std::cout << "Contacte con su médico para realizar una prueba PCR." << std::endl;
