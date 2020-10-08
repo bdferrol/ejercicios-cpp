@@ -18,6 +18,11 @@ int introducir_numero(int desde, int hasta) {
     do {
         std::cout << "Introduzca número entre " << desde << " y " << hasta << std::endl;
         std::cin >> numero;
+        if (std::cin.fail()) {
+            std::cout << "Eso no es un número." << std::endl;
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); //ignorar hasta 1000 caracteres siguientes o fin de linea
+        }
     } while (numero < desde || numero > hasta);
 
     return numero;
