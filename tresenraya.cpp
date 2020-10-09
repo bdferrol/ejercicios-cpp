@@ -30,14 +30,27 @@ void mostrar_tablero() {
 }
 
 
+/**
+ * Pide por teclado dos valores entre 1 y 3, entregándolos en
+ * las variables fila y columna (pasadas por referencia).
+ * Si el usuario introduce valores fuera de rango, vuelve a pedirselo.
+ * Al final, los valores son corregidos: el valor final de ambos estará
+ * entre 0 y 2.
+ */
 void solicitar_posicion(int& fila, int& columna) {
-    std::cout << "Fila: ";
-    std::cin >> fila;
-    std::cout << "Columna: ";
-    std::cin >> columna;
+    do {
+        std::cout << "Introduzca fila: " << std::endl;
+        std::cin >> fila;
+    } while(fila < 1 || fila > 3);
     fila--;
+
+    do {
+        std::cout << "Introduzca columna: " << std::endl;
+        std::cin >> columna;
+    } while(columna < 1 || columna > 3);
     columna--;    
 }
+
 
 bool casilla_ocupada(int fila, int columna) {
     return tablero[fila][columna] != 0;
