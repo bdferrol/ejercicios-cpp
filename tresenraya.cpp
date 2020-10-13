@@ -15,18 +15,29 @@ int tablero[3][3] = {
 int jugador = 1;
 
 
+char simbolo(int v) {
+    switch (v) {
+        case 0: return ' ';
+        case 1: return 'O';
+        case 2: return 'X';
+    }
+}
+
+
 /**
  * Visualiza el estado del tablero.
  */
 void mostrar_tablero() {
     for (int i = 0; i < 3; i++)
     {
+        std::cout << "+---+---+---+" << std::endl;
         for (int j = 0; j < 3; j++)
         {
-            std::cout << tablero[i][j];
+            std::cout << "| " << simbolo(tablero[i][j]) << " ";
         }
-        std::cout << std::endl;
+        std::cout << "|" << std::endl;
     }
+    std::cout << "+---+---+---+" << std::endl;
 }
 
 
